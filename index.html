@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/mirage-gothic" rel="stylesheet">
+    <meta property="og:image" content="https://j.top4top.io/p_3034yc9y50.jpg">
+            <link rel="shortcut icon" href="https://j.top4top.io/p_3034yc9y50.jpg" type="image/x-icon" />
+    <meta property="og:description" content="Gabut? klik mukanya bocah autis aja!">
+<title>PopSalmon - By Eberardos</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+  }
+
+  .gambar-container {
+    position: relative;
+  }
+
+  .gambar {
+    cursor: pointer;
+    width: 350px;
+    height: 350px;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .gambar:active {
+    background-color: salmon; /* Ubah warna latar belakang saat gambar sedang diklik */
+  }
+
+   .tulisan-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: transparent;
+}
+
+.tulisan {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: transform 0.5s ease;
+}
+
+.tulisan.miring-kiri {
+    transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.tulisan.miring-kanan {
+    transform: translate(-50%, -50%) rotate(5deg);
+}
+
+  .jumlah {
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .jumlah-text {
+    font-size: 30px;
+    color: crimson; /* Ubah warna teks jumlah menjadi crimson */
+  }
+
+  footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Mirage Gothic', sans-serif
+  }
+</style>
+</head>
+<body>
+
+<div class="gambar-container">
+  <img class="gambar" src="https://j.top4top.io/p_3034yc9y50.jpg">
+  <div class="tulisan-container">
+    <div class="tulisan"></div>
+  </div>
+  <div class="jumlah">Jumlah : <span class="jumlah-text">0</span></div>
+</div>
+
+<footer>EBERARDOS</footer>
+
+<script>
+let count = 0;
+const image = document.querySelector('.gambar');
+const text = document.querySelector('.tulisan');
+const jumlahText = document.querySelector('.jumlah-text');
+let isTiltedLeft = false;
+
+const messages = [
+    "Salma tolol", 
+    "Salma yapit", 
+    "Sugiarto ewe salma", 
+    "Prapti suka colmek", 
+    "Salma idiot",
+    "Salma di ewe dajjal", // Tambah teks baru di sini
+    "Salma si ratu rohingya", // Tambah teks baru di sini
+    "Salma goblok",  // Tambah teks baru di sini
+    "Salma anak pungut",
+    "kontol sugiarto disepong salma",
+    "salma suka dicolmekin sma sugiarto",
+    "salma si negro",
+    "salma di ewe orang rohingya",
+    "salma di ewe orang pakistan",
+    "salma diperkosa tentara israel"
+];
+
+const getRandomMessage = () => {
+    return messages[Math.floor(Math.random() * messages.length)];
+};
+
+image.addEventListener('click', function() {
+    count++;
+    jumlahText.textContent = count;
+    
+    const randomMessage = getRandomMessage();
+    text.textContent = randomMessage;
+    text.classList.toggle('miring-kiri', isTiltedLeft);
+    text.classList.toggle('miring-kanan', !isTiltedLeft);
+
+    if (isTiltedLeft) {
+        image.style.transform = 'rotate(10deg)';
+    } else {
+        image.style.transform = 'rotate(-10deg)';
+    }
+    isTiltedLeft = !isTiltedLeft;
+});
+</script>
+
+</body>
+</html>
